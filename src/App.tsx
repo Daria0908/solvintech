@@ -1,7 +1,13 @@
-import React from "react";
+import { Provider } from "mobx-react";
+import cardStore from "./store/card";
+import Cards from "./components/cards/cards";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Provider cardStore={cardStore}>
+      <Cards />
+    </Provider>
+  );
 }
 
 export default App;
