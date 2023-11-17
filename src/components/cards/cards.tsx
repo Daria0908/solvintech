@@ -39,7 +39,6 @@ const Cards = inject("cardStore")(
             <ModalCard data={cardStore.modalCard} close={closeModal} />
           </ReactModal>
         )}
-        {/* {cardStore.modalCard && <ModalCard data={cardStore.modalCard} close={closeModal} />} */}
       </>
     );
   })
