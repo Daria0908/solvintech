@@ -9,6 +9,7 @@ class CardStore {
       cards: observable,
       countCardToShow: observable,
       cardsToShow: observable,
+      modalCard: observable,
     });
   }
 
@@ -16,6 +17,8 @@ class CardStore {
   cardsToShow: Array<ICardResponse> = [];
 
   countCardToShow: number = 4;
+
+  modalCard: ICardResponse | null = null;
 
   showMore() {
     let countVisible: number = this.cardsToShow.length;
@@ -34,6 +37,10 @@ class CardStore {
     const data = await Promise.resolve(mockCardsData);
     this.cards = data;
     this.cardsToShow = this.cards.slice(0, 4);
+  }
+
+  setModalCard(item: ICardResponse | null) {
+    this.modalCard = item;
   }
 }
 
