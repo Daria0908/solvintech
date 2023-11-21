@@ -16,7 +16,7 @@ class CardStore {
   cards: Array<ICardResponse> = [];
   cardsToShow: Array<ICardResponse> = [];
 
-  countCardToShow: number = 4;
+  countCardToShow: number = 3;
 
   modalCard: ICardResponse | null = null;
 
@@ -36,7 +36,7 @@ class CardStore {
   async getCards() {
     const data = await Promise.resolve(mockCardsData);
     this.cards = data;
-    this.cardsToShow = this.cards.slice(0, 4);
+    this.cardsToShow = this.cards.slice(0, 3);
   }
 
   setModalCard(item: ICardResponse | null) {

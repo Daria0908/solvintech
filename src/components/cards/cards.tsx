@@ -28,18 +28,24 @@ const Cards = inject("cardStore")(
     };
 
     return (
-      <>
-        <h2>Cards</h2>
-        {cardStore.cardsToShow.map((item: ICardResponse) => {
-          return <Card key={item._id} data={item} clickCard={setModalCard} />;
-        })}
-        {cardStore.cards.length !== cardStore.cardsToShow.length && <button onClick={showMore}>Show more</button>}
+      <div className="container">
+        <div className="cards">
+          {cardStore.cardsToShow.map((item: ICardResponse) => {
+            return <Card key={item._id} data={item} clickCard={setModalCard} />;
+          })}
+        </div>
+
+        {cardStore.cards.length !== cardStore.cardsToShow.length && (
+          <button onClick={showMore} className="btn">
+            Load more...
+          </button>
+        )}
         {cardStore.modalCard && (
           <ReactModal isOpen={!!cardStore.modalCard} shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} onRequestClose={closeModal}>
             <ModalCard data={cardStore.modalCard} close={closeModal} />
           </ReactModal>
         )}
-      </>
+      </div>
     );
   })
 );

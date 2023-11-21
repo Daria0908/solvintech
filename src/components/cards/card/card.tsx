@@ -10,8 +10,12 @@ export const Card: FC<IProps> = ({ data, clickCard }) => {
   return (
     <div className="card" onClick={() => clickCard(data)}>
       <img className="picture" src={data.picture} />
-      <h2 className="name">name:{data.name}</h2>
-      <p className="email">email: {data.email}</p>
+      <p className="name">
+        name: <span>{data.name}</span>
+      </p>
+      <p className="email">
+        email: <span>{data.email}</span>
+      </p>
     </div>
   );
 };
